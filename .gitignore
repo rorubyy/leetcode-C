@@ -1,3 +1,2 @@
-*.exe
-*.dSYM
-*.DS_Store
+*
+!*.cpp
