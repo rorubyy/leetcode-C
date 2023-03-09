@@ -13,7 +13,7 @@ struct ListNode
 
 ListNode *detectCycle(ListNode *head)
 {
-    ListNode *fast = head, *slow = head;
+    ListNode *fast = head, *slow = head; // fast: two step, slow: one step
     while (fast && fast->next)
     {
         fast = fast->next->next;
