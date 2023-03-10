@@ -22,10 +22,11 @@ public:
     Solution(ListNode *head)
     {
         this->head = head;
+        srand(time(NULL));
     }
     int getRandom()
     {
-        int count = 0, result = 0;
+        int count = 0, result;
         ListNode *cur = head;
         while (cur)
         {
