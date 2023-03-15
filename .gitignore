@@ -1,9 +1,6 @@
 .vscode/tasks.json
 .vscode/settings.json
 .vscode/c_cpp_properties.json
-easy/*
-medium/*
-hard/*
-!easy/*.cpp
-!medium/*.cpp
-!hard/*.cpp
+/leetcode/*
+!/leetcode/*.cpp
+!/leetcode/header/*
