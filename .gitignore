@@ -3,4 +3,4 @@
 .vscode/c_cpp_properties.json
 /leetcode/*
 !/leetcode/*.cpp
-!/leetcode/header/*
+!/leetcode/header/
