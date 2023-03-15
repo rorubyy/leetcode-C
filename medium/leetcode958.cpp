@@ -37,7 +37,7 @@ bool isCompleteTree(TreeNode *root)
 TreeNode *buildTree(vector<int> &arr, int index)
 {
     TreeNode *root = nullptr;
-    if (index < arr.size() && arr[index] != NULL)
+    if (index < arr.size() && !arr[index])
     {
         root = new TreeNode(arr[index]);
         root->left = buildTree(arr, 2 * index + 1);
