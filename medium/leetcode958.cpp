@@ -47,8 +47,8 @@ TreeNode *buildTree(vector<int> &arr, int index)
 }
 int main()
 {
-    vector<int> arr = {1, 2, 3};
+    vector<int> arr = {1, 2, 3, NULL};
     int index = 0;
-    isCompleteTree(buildTree(arr,0));
+    isCompleteTree(buildTree(arr, 0));
     return 0;
 }
