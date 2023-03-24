@@ -46,7 +46,7 @@ int makeConnected(int n, vector<vector<int>> &connections)
 }
 int main()
 {
-    int n = 5;
-    vector<vector<int>> connections{{0, 1}, {0, 2}, {3, 4}, {2, 3}};
+    int n = 4;
+    vector<vector<int>> connections{{0, 1}, {0, 2}, {1, 3}};
     makeConnected(n, connections);
 }
