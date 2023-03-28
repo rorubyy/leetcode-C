@@ -1,5 +1,7 @@
+#ifndef TREENODE
+#define TREENODE
+
 #include <iostream>
-#include <queue>
 #include <vector>
 
 using namespace std;
@@ -13,27 +15,6 @@ struct TreeNode
     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
 };
-
-bool isCompleteTree(TreeNode *root)
-{
-    queue<TreeNode *> bfsQ;
-    if (!root)
-        return true;
-    bfsQ.push(root);
-
-    while (bfsQ.front() != nullptr)
-    {
-        TreeNode *cur = bfsQ.front();
-        bfsQ.push(cur->left);
-        bfsQ.push(cur->right);
-        bfsQ.pop();
-    }
-    while (!bfsQ.empty() && bfsQ.front() == nullptr)
-    {
-        bfsQ.pop();
-    }
-    return bfsQ.empty();
-}
 TreeNode *buildTree(vector<int> &arr, int index)
 {
     TreeNode *root = nullptr;
@@ -45,10 +26,4 @@ TreeNode *buildTree(vector<int> &arr, int index)
     }
     return root;
 }
-int main()
-{
-    vector<int> arr = {1, 2, 3, NULL};
-    int index = 0;
-    isCompleteTree(buildTree(arr, 0));
-    return 0;
-}
+#endif
