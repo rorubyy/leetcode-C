@@ -10,6 +10,7 @@ int find(int x, vector<int> &parent)
     }
     return parent[x];
 }
+
 void disjoint(int a, int b, vector<int> &parent)
 {
     a = find(a, parent);
