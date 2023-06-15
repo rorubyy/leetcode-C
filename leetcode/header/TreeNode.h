@@ -18,7 +18,7 @@ struct TreeNode
 TreeNode *buildTree(vector<int> &arr, int index)
 {
     TreeNode *root = nullptr;
-    if (index < arr.size() && arr[index] >= 0)
+    if (index < arr.size() && arr[index] >= -100000)
     {
         root = new TreeNode(arr[index]);
         root->left = buildTree(arr, 2 * index + 1);
