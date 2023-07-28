@@ -6,40 +6,44 @@
 #include <math.h>
 
 using namespace std;
-bool isEmpty(int k)
+bool canRun(vector<int> &batteries, long long minutes, int n)
 {
-    if(k==0)
-        return true;
-    return false;
-}
-bool isValid(vector<int> &batteries, int minutes, int n)
-{
-    vector<int> temp = batteries;
-    sort(temp.begin(), temp.end(), greater<int>());
+    // lack
+    long long lack = 0;
 
-    for (int i = 0; i < minutes; i++)
+    for (int i = 0; i < n; i++)
     {
-        for (int j = 0; j < n; j++)
-        {
-            temp[j]--;
-        }
-        temp = remove_if(temp.begin(), temp.end(), isEmpty);
+        if (batteries[i] < minutes)
+            lack += minutes - batteries[i];
     }
-    return true;
+    for (int i = n; i < batteries.size(); i++)
+    {
+        lack -= batteries[i];
+        if (lack <= 0)
+            return true;
+    }
+    return lack <= 0;
 }
+
 long long maxRunTime(int n, vector<int> &batteries)
 {
-    int left = *min_element(batteries.begin(), batteries.end()), right = accumulate(batteries.begin(), batteries.end(), 0);
+    sort(batteries.begin(), batteries.end(), greater<int>());
+    long long left = 0, right = 0;
+    for (auto b : batteries)
+    {
+        right += b;
+    }
+    right /= n;
     while (left < right)
     {
-        int mid = left + (right - left) / 2;
-        isValid(batteries, mid, n) ? left = mid + 1 : right = mid;
+        long long mid = (left + right + 1) / 2;
+        canRun(batteries, mid, n) ? left = mid : right = mid - 1;
     }
     return left;
 }
 int main()
 {
-    int n = 2;
-    vector<int> batteries{3, 3, 3};
+    int n = 3;
+    vector<int> batteries{10, 10, 3, 5};
     maxRunTime(n, batteries);
 }
